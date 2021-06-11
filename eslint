@@ -1,0 +1,44 @@
+配置eslint，安装eslint插件，保存时自动格式化代码
+检查package.json是否有如下配置：
+"eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    ...
+如果没有，需全局安装npm install eslint -g。
+eslint插件安装：
+启用eslint: 如果不是勾选，点击切换为勾选
+
+开启保存时自动格式化代码：
+1.进入vscode setting界面
+2.搜索eslint，并进入编辑页面,找到settings.json  文件
+3.编辑页面配置如下：
+{
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "git.path": "C:\\Program Files\\Git\\bin\\git.exe",
+    "git.confirmSync": false,
+    "explorer.confirmDelete": false,
+    "eslint.codeAction.showDocumentation": {
+    
+        "enable": true
+    }, // 这里是我电脑上bash.exe的路径
+    "eslint.run": "onType",
+    "eslint.options": {
+        "extensions": [
+            ".js",
+            ".vue",
+            ".jsx",
+            ".tsx"
+        ]
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+}
+4.测试eslint自动格式化功能
+修改页面代码，保存时代码自动格式化
